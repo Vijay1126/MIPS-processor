@@ -34,9 +34,9 @@ Types of Hazards
 1. RAW Hazards: RAW hazards are dealt with using either only forwarding (if possible) or,
 if not, using stalling + forwarding. 
 2. Control Flow Hazards:
-a. Branches are always assumed to be NOT TAKEN. That is, when a beq is fetched
+    1. Branches are always assumed to be NOT TAKEN. That is, when a beq is fetched
 in the IF stage, the PC is speculatively updated as PC+4.
-b. Branch conditions are resolved in the ID/RF stage. To make your life easier,
+    2. Branch conditions are resolved in the ID/RF stage. To make your life easier,
 will ensure that every beq instruction has no RAW dependency with its
 previous two instructions. In other words, you do NOT have to deal with
 RAW hazards for branches!
