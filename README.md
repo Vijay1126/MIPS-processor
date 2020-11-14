@@ -30,7 +30,7 @@ described in the tables below
 ![image](https://user-images.githubusercontent.com/63943580/99158609-8ef65d80-26a2-11eb-882f-788e2e5517b3.png)
 
 
-Types of Hazards
+# Types of Hazards
 1. RAW Hazards: RAW hazards are dealt with using either only forwarding (if possible) or,
 if not, using stalling + forwarding. 
 2. Control Flow Hazards:
@@ -47,3 +47,22 @@ branch address is computed.
 branch is TAKEN, the speculatively fetched instruction from PC+4 is quashed in
 its ID/RF stage using the nop bit and the next instruction is fetched from the
 effective branch address. Execution now proceeds normally.
+
+# The nop bit
+The nop bit for any stage indicates whether it is performing a valid operation in the current clock
+cycle. The nop bit for the IF stage is initialized to 0 and for all other stages is initialized to 1.
+(This is because in the first clock cycle, only the IF stage performs a valid operation.)
+In the absence of hazards,, the value of the nop bit for a stage in the current clock cycle is equal
+to the nop bit of the prior stage in the previous clock cycle.
+However, the nop bit is also used to implement stall that result from a RAW hazard or to quash
+speculatively fetched instructions if the branch condition evaluates to TAKEN.
+
+# The HALT Instruction
+The halt instruction is a “custom” instruction we introduced so you know when to stop the
+simulation. When a HALT instruction is fetched in IF stage at cycle N, the nop bit of the IF stage
+in the next clock cycle (cycle N+1) is set to 1 and subsequently stays at 1. The nop bit of the
+ID/RF stage is set to 1 in cycle N+1 and subsequently stays at 1. The nop bit of the EX stage is
+set to 1 in cycle N+2 and subsequently stays at 1. The nop bit of the MEM stage is set to 1 in
+cycle N+3 and subsequently stays at 1. The nop bit of the WB stage is set to 1 in cycle N+4 and
+subsequently stays at 1.
+
