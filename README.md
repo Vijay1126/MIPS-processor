@@ -7,3 +7,24 @@ The instructions that the simulator supports and their encodings are shown in Ta
 
 
 ![image](https://user-images.githubusercontent.com/63943580/99158562-1bece700-26a2-11eb-8e02-caed9956642b.png)
+
+
+# Pipleline Structure
+
+The MIPS pipeline has the following 5 stages:
+1. Fetch (IF): fetches an instruction from instruction memory. Updates PC.
+2. Decode (ID/RF): reads from the register RF and generates control signals required in
+subsequent stages. In addition, branches are resolved in this stage by checking for the
+branch condition and computing the effective address.
+3. Execute (EX): performs an ALU operation.
+4. Memory (MEM): loads or stores a 32-bit word from data memory.
+5. Writeback (WB): writes back data to the RF.
+
+Each pipeline stages takes inputs from flip-flops. The input flip-flops for each pipeline stage are
+described in the tables below
+
+![image](https://user-images.githubusercontent.com/63943580/99158592-62424600-26a2-11eb-81fa-1749032e5b95.png)
+
+![image](https://user-images.githubusercontent.com/63943580/99158603-830a9b80-26a2-11eb-8e70-735b30d370bd.png)
+
+![image](https://user-images.githubusercontent.com/63943580/99158609-8ef65d80-26a2-11eb-882f-788e2e5517b3.png)
