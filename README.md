@@ -5,3 +5,5 @@ The MIPS program is provided to the simulator as a text file “imem.txt” file
 The Data Memory is initialized using the “dmem.txt” file. The format of the stored words is the same as the Instruction Memory. As with the instruction memory, the data memory addresses also begin at 0 and increment by one in each line.
 The instructions that the simulator supports and their encodings are shown in Table 1. Note that all instructions, except for “halt”, exist in the MIPS ISA. The MIPS Green Sheet defines the semantics of each instruction. 
 
+
+![image](https://user-images.githubusercontent.com/63943580/99158562-1bece700-26a2-11eb-8e02-caed9956642b.png)
