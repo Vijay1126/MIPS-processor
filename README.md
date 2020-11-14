@@ -40,10 +40,10 @@ in the IF stage, the PC is speculatively updated as PC+4.
 will ensure that every beq instruction has no RAW dependency with its
 previous two instructions. In other words, you do NOT have to deal with
 RAW hazards for branches!
-c. Two operations are performed in the ID/RF stage: (i) Read_data1 and
+    3. Two operations are performed in the ID/RF stage: (i) Read_data1 and
 Read_data2 are compared to determine the branch outcome; (ii) the effective
 branch address is computed.
-d. If the branch is NOT TAKEN, execution proceeds normally. However, if the
+    4.  If the branch is NOT TAKEN, execution proceeds normally. However, if the
 branch is TAKEN, the speculatively fetched instruction from PC+4 is quashed in
 its ID/RF stage using the nop bit and the next instruction is fetched from the
 effective branch address. Execution now proceeds normally.
